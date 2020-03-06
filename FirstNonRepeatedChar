@@ -1,0 +1,41 @@
+import java.util.*;
+public class FirstNonRepeatedChar {
+    public static Character firstNonRepeatedChar(String str){
+        HashMap<Character,Integer> map=new HashMap();
+        Character c;
+        for(int i=0;i<str.length();i++){
+            c=str.charAt(i);
+            if(map.containsKey(c))
+            {
+                map.put(c,map.get(c)+1);
+                
+            }
+            else
+            {
+                map.put(c,1);
+            }
+            
+        }
+        System.out.println(map);
+        for(int i=0;i<str.length();i++)
+        {
+            c=str.charAt(i);
+            if(map.get(c)==1)
+            return c;
+        }
+        return null;
+    }
+    
+    public static void main(String[] args) throws Exception {
+
+     System.out.println("please enter input string");
+     
+     Scanner sc=new Scanner(System.in);
+     while(sc.hasNextLine()){
+      String s=sc.nextLine();
+     char c=firstNonRepeatedChar(s);
+     
+     System.out.println("the first non repeated character is "+c);
+     }
+    }
+}
