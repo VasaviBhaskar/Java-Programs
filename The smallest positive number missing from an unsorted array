@@ -1,0 +1,21 @@
+import java.util.Arrays;
+public class SmallestMissingPositiveInteger {
+public static int searchInSortedArray(int[] input) {
+        for (int i = 0; i < input.length; i++) {
+            if (i != input[i]) {
+                return i;
+            }
+        }
+   return input.length;
+    }
+    public static int searchInUnsortedArraySortingFirst(int[] input) {
+        Arrays.sort(input);
+        return searchInSortedArray(input);
+    }
+public static void main(String a[]) throws Exception
+{
+    int b[]=new int[]{2, 3, 7, 6, 8, -1, -10, 15};
+    searchInUnsortedArraySortingFirst(b);
+ System.out.println("The missing element in the given array is "+searchInSortedArray(b));
+}
+}
